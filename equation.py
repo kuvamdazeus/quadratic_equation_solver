@@ -3,11 +3,10 @@ import re, sys
 1. form of equation should be: a*x^2+b*x+c
 2. causes error if invalid equation is given"""
 
-# example: if a = 1, b = 0, c = 10 then, you would write "1*x^2+0*x+10"
+# example: if a = +1, b = 0, c = +10 then, you would write "+1*x^2+0*x+10"
 # same goes for others too
 
-string = input().strip().replace(" ", "")
-def extract_coefs(string):
+def extract_coef(string):
     a_pattern = r"(^[\+\-][0-9]+)\*x"
     b_pattern = r"([\+\-][0-9]+)\*x[\+\-]"
     c_pattern = r"([\+\-][0-9]+$)"
@@ -32,8 +31,10 @@ def calculate_zeros(coefs):
     x1 = (-b + (D)**(1/2))/(2*a)
     x2 = (-b - (D)**(1/2))/(2*a)
     print(x1, x2)
+    return (x1, x2)
 
 def main():
-    calculate_zeros(extract_coefs(string))
-
-main()
+    string = input().strip().replace(" ", "")
+    calculate_zeros(extract_coef(string))
+if __name__ == "__main__":
+    main()
