@@ -6,7 +6,7 @@ import re, sys
 # example: if a = 1, b = 0, c = 10 then, you would write "1*x^2+0*x+10"
 # same goes for others too
 
-string = input()
+string = input().strip().replace(" ", "")
 def extract_coefs(string):
     a_pattern = r"(^[\+\-][0-9]+)\*x"
     b_pattern = r"([\+\-][0-9]+)\*x[\+\-]"
